@@ -1,4 +1,5 @@
 // Instructions: Write code to remove duplicates from an unsorted linked list
+// Assumption: List will have at least 1 node
 
 function List() {
 	this.head = null;
@@ -29,9 +30,11 @@ const removeDups = l => {
 		} else {
 			// add the next node's value
 			listVals[node.next.data] = 1;
+			// advance node
 			node = node.next;
 		}
 	}
+	//return list
 	return l;
 };
 
@@ -61,10 +64,10 @@ const printList = l => {
 	}
 };
 
-/* TEST */
-let list = new List();
-list.head = new Node(1);
-let node = list.head;
+/* TESTS */
+let case1 = new List();
+case1.head = new Node(1);
+let node = case1.head;
 node.next = new Node(2);
 node = node.next;
 node.next = new Node(3);
@@ -74,5 +77,11 @@ node = node.next;
 node.next = new Node(1);
 node = node.next;
 
-console.log(printList(list)); // 1->2->3->2->1->null
-console.log(printList(removeDups(list))); // 1->2->3->null
+let case2 = new List();
+case2.head = new Node(1);
+
+console.log(printList(case1)); // 1->2->3->2->1->null
+console.log(printList(removeDups(case1))); // 1->2->3->null
+
+console.log(printList(case2)); // 1->null
+console.log(printList(removeDups(case2))); // 1->null
