@@ -28,6 +28,7 @@ const setToZero = matrix => {
 		}
 	}
 
+	// if the row or column exists within the affected objects, set the matrix val to 0
 	for (let x = 0; x < mRows; x++) {
 		for (let y = 0; y < mCols; y++) {
 			if (rows[x] || cols[y]) {

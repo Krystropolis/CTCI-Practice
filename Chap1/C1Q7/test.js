@@ -1,4 +1,4 @@
-const setToZero = require('./C1Q7');
+const setToZero = require('./index');
 
 const matrix1 = [],
 	matrix2 = [[1]],
