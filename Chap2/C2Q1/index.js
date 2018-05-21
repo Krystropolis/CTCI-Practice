@@ -14,6 +14,11 @@ function Node(data) {
  * @return {object} linked list without duplicates
  */
 const removeDups = l => {
+	// Error handling, returns undefined
+	if (!l || !(l instanceof List) || !l.head) {
+		return;
+	}
+
 	// use an object to keep track of all list values
 	let listVals = {};
 	// start with list head node
@@ -43,6 +48,11 @@ const removeDups = l => {
  * @return {string} all values in list
  */
 const printList = l => {
+	// Error handling
+	if (!l || !(l instanceof List) || !l.head) {
+		return 'Error: Please submit a valid list.';
+	}
+
 	let node = l.head;
 	let str = '';
 
@@ -64,24 +74,4 @@ const printList = l => {
 	}
 };
 
-/* TESTS */
-let case1 = new List();
-case1.head = new Node(1);
-let node = case1.head;
-node.next = new Node(2);
-node = node.next;
-node.next = new Node(3);
-node = node.next;
-node.next = new Node(2);
-node = node.next;
-node.next = new Node(1);
-node = node.next;
-
-let case2 = new List();
-case2.head = new Node(1);
-
-console.log(printList(case1)); // 1->2->3->2->1->null
-console.log(printList(removeDups(case1))); // 1->2->3->null
-
-console.log(printList(case2)); // 1->null
-console.log(printList(removeDups(case2))); // 1->null
+module.exports = { List, Node, removeDups, printList };
